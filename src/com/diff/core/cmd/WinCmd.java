@@ -2,6 +2,7 @@ package com.diff.core.cmd;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class WinCmd {
 
@@ -11,18 +12,21 @@ public class WinCmd {
 	private BufferedReader bufferedReader;
 	
 	public static void main(String[] args) {
-		WinCmd cmd = new WinCmd();
+		Scanner sc = new Scanner(System.in);
+		String inputCommand = sc.next();
 		
-		String command = cmd.inputCommand("ipconfig");
+		WinCmd cmd = new WinCmd();
+		String command = cmd.inputCommand(inputCommand);
 		String result = cmd.execCommand(command);
 		
 		System.out.println(result);
+		//ÀÛ¾÷ šë°¡
 	}
 	
 	public String inputCommand(String cmd) {
 		buffer =  new StringBuffer();
 		
-		buffer.append("cmd.exe ");
+		buffer.append("cmd.exe "); 
 		buffer.append("/c ");
 		buffer.append(cmd);
 		
