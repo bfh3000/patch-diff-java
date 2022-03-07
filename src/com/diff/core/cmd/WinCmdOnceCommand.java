@@ -23,11 +23,11 @@ public class WinCmdOnceCommand {
 //		WinCmd cmd = new WinCmd();
 //		String command = cmd.excuteCommand(inputCommand);
 		
-		String cmd = "ipconfig";
+		String cmd = "git";
 		
 		buffer =  new StringBuffer();
 		
-		buffer.append("cmd.exe ");
+		buffer.append("%windir%\\system32\\cmd.exe\\cmd.exe ");
 		buffer.append("/k ");
 		buffer.append(cmd);
 		
