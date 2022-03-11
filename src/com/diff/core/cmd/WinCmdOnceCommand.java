@@ -23,9 +23,9 @@ public class WinCmdOnceCommand {
 //		WinCmd cmd = new WinCmd();
 //		String command = cmd.excuteCommand(inputCommand);
 		
-		String cmd = "git";
+		String cmd = "echo %cd%"; 
 		
-		buffer =  new StringBuffer();
+		buffer = new StringBuffer();
 		
 		buffer.append("%windir%\\system32\\cmd.exe\\cmd.exe ");
 		buffer.append("/k ");
@@ -34,6 +34,7 @@ public class WinCmdOnceCommand {
 		try {
 			process = Runtime.getRuntime().exec(cmd);
 			bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+			
 			
 			String line = null;
 			readBuffer = new StringBuffer();

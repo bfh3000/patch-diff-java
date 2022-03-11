@@ -36,20 +36,6 @@ public class WincmdShell {
                 e.printStackTrace();
                 System.out.println("bWriter Failed");
             }
-            
-            String line = null;
-			readBuffer = new StringBuffer();
-			
-			while((line = bufferedReader.readLine()) != null) {
-				readBuffer.append(line);
-				readBuffer.append("\n");
-			}
-			
-			String result = readBuffer.toString();
-			System.out.println("command result : "+result);
-            
-            
-            
         }	
 		
 		
