@@ -16,15 +16,8 @@ public class WinCmdOnceCommand {
 		Process process;
 		BufferedReader bufferedReader;
 		
-//		System.out.println("'.git'이 존재하는 대상 폴더 경로를 입력해주세요.");
-//		Scanner sc = new Scanner(System.in);
-//		String inputCommand = sc.next();
-//		
-//		WinCmd cmd = new WinCmd();
-//		String command = cmd.excuteCommand(inputCommand);
-		
-		String cmd = "echo %cd%"; 
-		
+		String cmd = "cd C:\\Users\\dsm3000\\Desktop\\001-SAC330\\proxy && git diff --name-status a630528b 082c66d7"; 
+		 
 		buffer = new StringBuffer();
 		
 		buffer.append("%windir%\\system32\\cmd.exe\\cmd.exe ");
@@ -34,7 +27,6 @@ public class WinCmdOnceCommand {
 		try {
 			process = Runtime.getRuntime().exec(cmd);
 			bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-			
 			
 			String line = null;
 			readBuffer = new StringBuffer();
