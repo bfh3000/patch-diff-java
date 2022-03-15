@@ -16,7 +16,7 @@ public class WinCmdOnceCommand {
 		Process process;
 		BufferedReader bufferedReader;
 		
-		String cmd = "cd C:\\Users\\dsm3000\\Desktop\\001-SAC330\\proxy && git diff --name-status a630528b 082c66d7"; 
+		String cmd = "git diff --name-status C:\\\\Users\\\\dsm3000\\\\Desktop\\\\proxy a630528b 082c66d7"; 
 		 
 		buffer = new StringBuffer();
 		
