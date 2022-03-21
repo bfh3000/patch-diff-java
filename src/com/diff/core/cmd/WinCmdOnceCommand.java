@@ -16,7 +16,17 @@ public class WinCmdOnceCommand {
 		Process process;
 		BufferedReader bufferedReader;
 		
-		String cmd = "git diff --name-status C:\\\\Users\\\\dsm3000\\\\Desktop\\\\proxy a630528b 082c66d7"; 
+//		M       Proxy/conf/sac.properties
+//		M       Proxy/src/com/systemGateway/dao/DataAccessService.java
+//		M       Proxy/src/com/systemGateway/dao/serveraccount/map/ServerAccountSQL.xml
+//		M       Proxy/src/com/systemGateway/entity/DBServerAccountE.java
+//		M       Proxy/src/com/systemGateway/sam/worker/ProtocolWorker.java
+//		M       Proxy/src/com/systemGateway/sam/worker/SSHWorker.java
+//		M       Proxy/src/com/systemGateway/sam/worker/TelnetWorker.java
+//		M       Proxy/src/com/systemGateway/sam/worker/WAgentWorker.java
+		
+		
+		String cmd = "git diff --name-status a630528b 082c66d7"; 
 		 
 		buffer = new StringBuffer();
 		
