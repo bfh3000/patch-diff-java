@@ -1,7 +1,10 @@
 package com.diff.core.cmd;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStreamReader;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class WinCmdOnceCommand {
 
@@ -30,12 +33,17 @@ public class WinCmdOnceCommand {
 		 
 		buffer = new StringBuffer();
 		
-		buffer.append("%windir%\\system32\\cmd.exe\\cmd.exe ");
+		buffer.append("%windir%\\system32\\cmd.exe ");
 		buffer.append("/k ");
 		buffer.append(cmd);
+		String[] ex = {"", ""};
+		Path dir = Paths.get("C:\\\\Users\\\\dsm3000\\\\Desktop\\\\proxy");
+		File path = new File("C:\\Users\\dsm3000\\Desktop\\proxy");
 		
 		try {
-			process = Runtime.getRuntime().exec(cmd);
+			
+			process = Runtime.getRuntime().exec(cmd, ex, path);
+//			process = Runtime.getRuntime().exec(cmd);
 			bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 			
 			String line = null;
