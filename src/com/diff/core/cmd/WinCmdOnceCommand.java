@@ -37,13 +37,15 @@ public class WinCmdOnceCommand {
 		buffer.append("/k ");
 		buffer.append(cmd);
 		String[] ex = {"", ""};
-		Path dir = Paths.get("C:\\\\Users\\\\dsm3000\\\\Desktop\\\\proxy");
 		File path = new File("C:\\Users\\dsm3000\\Desktop\\proxy");
 		
 		try {
 			
-			process = Runtime.getRuntime().exec(cmd, ex, path);
+//			경로 설정 안되는 옵션
 //			process = Runtime.getRuntime().exec(cmd);
+			
+			//경로 설정 
+			process = Runtime.getRuntime().exec(cmd, ex, path);
 			bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 			
 			String line = null;
@@ -51,15 +53,22 @@ public class WinCmdOnceCommand {
 			
 			while((line = bufferedReader.readLine()) != null) {
 				readBuffer.append(line);
+				
 				readBuffer.append("\n");
 			}
 			
 			String result = readBuffer.toString();
-			System.out.println("command result : "+result);
+			System.out.println();
+			System.out.println("command result : ");
+			System.out.println(result);
 			
 			
-			
-		} catch (Exception e) {
+		} 
+		catch (ArrayIndexOutOfBoundsException e) {
+			e.printStackTrace();
+			System.out.println("");
+		}
+		catch (Exception e) {
 			e.printStackTrace();
 			System.exit(1);
 		}
