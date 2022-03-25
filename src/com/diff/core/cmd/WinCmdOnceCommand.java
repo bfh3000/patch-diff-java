@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.InputStreamReader;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WinCmdOnceCommand {
 
@@ -39,6 +41,7 @@ public class WinCmdOnceCommand {
 		String[] ex = {"", ""};
 		File path = new File("C:\\Users\\dsm3000\\Desktop\\proxy");
 		
+		List<String> resultList = new ArrayList<String>();
 		try {
 			
 //			경로 설정 안되는 옵션
@@ -53,27 +56,27 @@ public class WinCmdOnceCommand {
 			
 			while((line = bufferedReader.readLine()) != null) {
 				readBuffer.append(line);
-				
 				readBuffer.append("\n");
+				resultList.add(line);
 			}
 			
 			String result = readBuffer.toString();
 			System.out.println();
 			System.out.println("command result : ");
 			System.out.println(result);
-			
-			
 		} 
 		catch (ArrayIndexOutOfBoundsException e) {
 			e.printStackTrace();
-			System.out.println("");
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 			System.exit(1);
 		}
+		String sourceFolder = "C:\\Users\\dsm3000\\Desktop\\proxy\\Proxy\\lib";
+		File srcDir = new File(sourceFolder);
 		
-		
+		String 
+		File destDir = new File()
 		
 		return buffer.toString();
 	}
