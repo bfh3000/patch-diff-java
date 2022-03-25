@@ -75,8 +75,11 @@ public class WinCmdOnceCommand {
 		String sourceFolder = "C:\\Users\\dsm3000\\Desktop\\proxy\\Proxy\\lib";
 		File srcDir = new File(sourceFolder);
 		
-		String 
-		File destDir = new File()
+		
+		/*https://stackoverflow.com/questions/6214703/copy-entire-directory-contents-to-another-directory*/
+		/*
+		 * String File destDir = new File()
+		 */
 		
 		return buffer.toString();
 	}
