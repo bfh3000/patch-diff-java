@@ -2,9 +2,12 @@ package com.diff.core.cmd;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,10 +78,21 @@ public class WinCmdOnceCommand {
 		String sourceFolder = "C:\\Users\\dsm3000\\Desktop\\proxy\\Proxy\\lib";
 		File srcDir = new File(sourceFolder);
 		
+		String desktopPath = "C:\\Users\\" + System.getProperty("user.name") + "\\Desktop";
+		File destDir = new File(desktopPath);
 		
+		try {
+			Files.copy(srcDir.toPath(), destDir.toPath(), StandardCopyOption.REPLACE_EXISTING);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+			
 		/*https://stackoverflow.com/questions/6214703/copy-entire-directory-contents-to-another-directory
 		 * String File destDir = new File()
 		 */
+		
+		
 		
 		return buffer.toString();
 	}
