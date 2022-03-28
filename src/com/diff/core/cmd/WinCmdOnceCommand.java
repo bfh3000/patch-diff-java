@@ -64,9 +64,10 @@ public class WinCmdOnceCommand {
 			}
 			
 			String result = readBuffer.toString();
-			System.out.println();
-			System.out.println("command result : ");
-			System.out.println(result);
+//			git diff °á°ú¹°
+//			System.out.println();
+//			System.out.println("command result : ");
+//			System.out.println(result);
 		} 
 		catch (ArrayIndexOutOfBoundsException e) {
 			e.printStackTrace();
@@ -75,10 +76,10 @@ public class WinCmdOnceCommand {
 			e.printStackTrace();
 			System.exit(1);
 		}
-		String sourceFolder = "C:\\Users\\dsm3000\\Desktop\\proxy\\Proxy\\lib";
+		String sourceFolder = "C:\\Users\\dsm3000\\Desktop\\proxy\\Proxy\\lib\\test.txt";
 		File srcDir = new File(sourceFolder);
-		
-		String desktopPath = "C:\\Users\\" + System.getProperty("user.name") + "\\Desktop";
+																							
+		String desktopPath = "C:\\Users\\dsm3000\\Desktop\\sac\\test.txt";
 		File destDir = new File(desktopPath);
 		
 		try {
