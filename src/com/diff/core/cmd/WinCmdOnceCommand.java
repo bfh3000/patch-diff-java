@@ -34,7 +34,8 @@ public class WinCmdOnceCommand {
 //		M       Proxy/src/com/systemGateway/sam/worker/WAgentWorker.java
 		
 		
-		String cmd = "git diff --name-status a630528b 082c66d7"; 
+//		String cmd = "git diff --name-status a630528b 082c66d7";
+		String cmd = "git diff --name-only a630528b 082c66d7";
 		 
 		buffer = new StringBuffer();
 		
@@ -56,7 +57,6 @@ public class WinCmdOnceCommand {
 			
 			String line = null;
 			readBuffer = new StringBuffer();
-			
 			while((line = bufferedReader.readLine()) != null) {
 				readBuffer.append(line);
 				readBuffer.append("\n");
@@ -76,6 +76,13 @@ public class WinCmdOnceCommand {
 			e.printStackTrace();
 			System.exit(1);
 		}
+		
+		for(String str : resultList) {
+//			str.replaceAll("\\t", "");
+//			str.trim();
+			System.out.println(str);
+		}
+		
 		String sourceFolder = "C:\\Users\\dsm3000\\Desktop\\proxy\\Proxy\\lib\\test.txt";
 		File srcDir = new File(sourceFolder);
 																							
