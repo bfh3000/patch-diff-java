@@ -78,29 +78,21 @@ public class WinCmdOnceCommand {
 		}
 		
 		for(String str : resultList) {
-//			str.replaceAll("\\t", "");
-//			str.trim();
+			str.trim();
+			str.replace("java", "class");
+			str.replace("src", "classes");
 			System.out.println(str);
-		}
-		
-		String sourceFolder = "C:\\Users\\dsm3000\\Desktop\\proxy\\Proxy\\lib\\test.txt";
-		File srcDir = new File(sourceFolder);
-																							
-		String desktopPath = "C:\\Users\\dsm3000\\Desktop\\sac\\test.txt";
-		File destDir = new File(desktopPath);
-		
-		try {
-			Files.copy(srcDir.toPath(), destDir.toPath(), StandardCopyOption.REPLACE_EXISTING);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
+			File srcDir = new File(str);
+																								
+			String desktopPath = "C:\\Users\\dsm3000\\Desktop\\sac\\";
+			File destDir = new File(desktopPath);
 			
-		/*https://stackoverflow.com/questions/6214703/copy-entire-directory-contents-to-another-directory
-		 * String File destDir = new File()
-		 */
-		
-		
+			try {
+				Files.copy(srcDir.toPath(), destDir.toPath(), StandardCopyOption.REPLACE_EXISTING);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		
 		return buffer.toString();
 	}
