@@ -49,7 +49,7 @@ public class WinCmdOnceCommand {
 		try {
 			
 //			경로 설정 안되는 옵션
-//			process = Runtime.getRuntime().exec(cmd);
+//			process = RunDtime.getRuntime().exec(cmd);
 			
 			//경로 설정 
 			process = Runtime.getRuntime().exec(cmd, ex, path);
@@ -65,9 +65,9 @@ public class WinCmdOnceCommand {
 			
 			String result = readBuffer.toString();
 //			git diff 결과물
-//			System.out.println();
-//			System.out.println("command result : ");
-//			System.out.println(result);
+			System.out.println();
+			System.out.println("command result : ");
+			System.out.println(result);
 		} 
 		catch (ArrayIndexOutOfBoundsException e) {
 			e.printStackTrace();
