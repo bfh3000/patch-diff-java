@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
@@ -80,6 +82,8 @@ public class WinCmdOnceCommand {
 //		Proxy/src/com/dsmentoring/dsmim/systemGateway/sam/worker/WAgentWorker.java
 //		Proxy/conf/sac.properties
 
+		Path pathFolder = Paths.get(desktopPath);
+		
 		for (String str : resultList) {
 			str.trim();
 			str = str.replace("java", "class");
@@ -91,8 +95,9 @@ public class WinCmdOnceCommand {
 
 			File destDir = new File(desktopPath);
 
+			
 			try {
-				destDir.mkdir();
+				Files.createDirectory(pathFolder);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
