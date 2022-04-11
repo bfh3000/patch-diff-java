@@ -55,12 +55,6 @@ public class WinCmdOnceCommand {
 				resultList.add(line);
 			}
 
-//			git diff 결과물
-			String result = readBuffer.toString();
-			System.out.println();
-			System.out.println("command result : ");
-			System.out.println(result);
-
 		} catch (ArrayIndexOutOfBoundsException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -75,38 +69,54 @@ public class WinCmdOnceCommand {
 		String file_name = "";
 		String file_path = "";
 
-		for (String str : resultList) {
-			
-		}
-		
 //		Proxy/src/com/dsmentoring/dsmim/systemGateway/sam/worker/WAgentWorker.java
 //		Proxy/conf/sac.properties
 
-		Path pathFolder = Paths.get(desktopPath);
 		
 		for (String str : resultList) {
 			str.trim();
+			
+			//file name
+			String[] tmp_str = str.split("/");
+			String fileNam = tmp_str[tmp_str.length-1];
+			
+			//srcSource Path
 			str = str.replace("java", "class");
 			str = str.replace("/", "\\");
 			str = str.replace("src", "classes");
+			
+			String deskDirPlusFile = desktopPath+str;
+			String deskDir = deskDirPlusFile.substring(0, deskDirPlusFile.indexOf(fileNam));
+			Path pathFolder = Paths.get(deskDir);
+			File destDir = new File(deskDir);
+			
+			
 			str = homePath + str;
-			System.out.println(str);
 			File srcDir = new File(str);
 
-			File destDir = new File(desktopPath);
-
-			
-			try {
-				Files.createDirectory(pathFolder);
-			} catch (Exception e) {
-				e.printStackTrace();
+			//폴더가 없다면 생성
+			if(!destDir.exists()) {
+				try {
+					Path test1 = Paths.get("C:\\Users\\dsm3000\\Desktop\\sac");
+					Files.createDirectory(test1);
+					
+					Path test2 = Paths.get("C:\\Users\\dsm3000\\Desktop\\sac\\Proxy");
+					Files.createDirectory(test2);
+					
+					Path test3 = Paths.get("C:\\Users\\dsm3000\\Desktop\\sac\\Proxy\\conf");
+					Files.createDirectory(test3);
+					
+//					Files.createDirectory(pathFolder);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 			
-			try {
-				Files.copy(srcDir.toPath(), destDir.toPath(), StandardCopyOption.REPLACE_EXISTING);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+//			try {
+//				Files.copy(srcDir.toPath(), destDir.toPath(), StandardCopyOption.REPLACE_EXISTING);
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
 		}
 
 		return buffer.toString();
