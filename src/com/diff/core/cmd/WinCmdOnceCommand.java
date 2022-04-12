@@ -78,15 +78,17 @@ public class WinCmdOnceCommand {
 			
 			//file name
 			String[] tmp_str = str.split("/");
-			String fileNam = tmp_str[tmp_str.length-1];
-			
+			String fileName = tmp_str[tmp_str.length-1];
+			fileName = fileName.replace("java", "class"); 
 			//srcSource Path
 			str = str.replace("java", "class");
 			str = str.replace("/", "\\");
 			str = str.replace("src", "classes");
 			
+			
+			
 			String deskDirPlusFile = desktopPath+str;
-			String deskDir = deskDirPlusFile.substring(0, deskDirPlusFile.indexOf(fileNam));
+			String deskDir = deskDirPlusFile.substring(0, deskDirPlusFile.indexOf(fileName));
 			Path pathFolder = Paths.get(deskDir);
 			File destDir = new File(deskDir);
 			
@@ -94,29 +96,21 @@ public class WinCmdOnceCommand {
 			str = homePath + str;
 			File srcDir = new File(str);
 
-			//폴더가 없다면 생성
+			
+			//폴더가 없다면 생성 Multi Ver.
 			if(!destDir.exists()) {
 				try {
-					Path test1 = Paths.get("C:\\Users\\dsm3000\\Desktop\\sac");
-					Files.createDirectory(test1);
-					
-					Path test2 = Paths.get("C:\\Users\\dsm3000\\Desktop\\sac\\Proxy");
-					Files.createDirectory(test2);
-					
-					Path test3 = Paths.get("C:\\Users\\dsm3000\\Desktop\\sac\\Proxy\\conf");
-					Files.createDirectory(test3);
-					
-//					Files.createDirectory(pathFolder);
+					destDir.mkdirs();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 			
-//			try {
-//				Files.copy(srcDir.toPath(), destDir.toPath(), StandardCopyOption.REPLACE_EXISTING);
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
+			try {
+				Files.copy(srcDir.toPath(), destDir.toPath(), StandardCopyOption.REPLACE_EXISTING);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 
 		return buffer.toString();
