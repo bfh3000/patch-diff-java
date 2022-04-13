@@ -62,40 +62,34 @@ public class WinCmdOnceCommand {
 			System.exit(1);
 		}
 
+		//원본 소스 위치
 		String homePath = "C:\\Users\\dsm3000\\Desktop\\proxy\\";
+		
+		//복사될 최종 위치
 		String desktopPath = "C:\\Users\\dsm3000\\Desktop\\sac\\";
 		
 		//파일명과 파일폴더 나누기
-		String file_name = "";
-		String file_path = "";
+		String origin_file_path = "";
 
-//		Proxy/src/com/dsmentoring/dsmim/systemGateway/sam/worker/WAgentWorker.java
-//		Proxy/conf/sac.properties
-
-		
 		for (String str : resultList) {
-			str.trim();
+			str = str.trim();
+			str = str.replace("/", "\\");
+			origin_file_path = homePath + str;
 			
 			//file name
-			String[] tmp_str = str.split("/");
+			String[] tmp_str = str.split("\\\\");
 			String fileName = tmp_str[tmp_str.length-1];
 			fileName = fileName.replace("java", "class"); 
-			//srcSource Path
+			
+			//srcSource To copySource(class)
 			str = str.replace("java", "class");
-			str = str.replace("/", "\\");
 			str = str.replace("src", "classes");
+			str = desktopPath + str;
 			
 			
-			
-			String deskDirPlusFile = desktopPath+str;
-			String deskDir = deskDirPlusFile.substring(0, deskDirPlusFile.indexOf(fileName));
-			Path pathFolder = Paths.get(deskDir);
-			File destDir = new File(deskDir);
-			
-			
-			str = homePath + str;
-			File srcDir = new File(str);
-
+			String final_DirPlusFile = str;
+			String final_Dir = final_DirPlusFile.substring(0, final_DirPlusFile.indexOf(fileName));
+			File destDir = new File(final_Dir);
 			
 			//폴더가 없다면 생성 Multi Ver.
 			if(!destDir.exists()) {
@@ -105,9 +99,12 @@ public class WinCmdOnceCommand {
 					e.printStackTrace();
 				}
 			}
+
 			
+			File srcDir = new File(origin_file_path);
+			File cpDir = new File(final_DirPlusFile);
 			try {
-				Files.copy(srcDir.toPath(), destDir.toPath(), StandardCopyOption.REPLACE_EXISTING);
+				Files.copy(srcDir.toPath(), cpDir.toPath(), StandardCopyOption.REPLACE_EXISTING);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
