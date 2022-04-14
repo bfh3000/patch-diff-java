@@ -13,10 +13,6 @@ import java.util.List;
 
 public class WinCmdOnceCommand {
 
-	public static void main(String[] args) {
-		new WinCmdOnceCommand().excuteCommand();
-	}
-
 	public String excuteCommand() {
 
 		// 버퍼, 프로세서
