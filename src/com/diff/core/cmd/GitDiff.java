@@ -1,10 +1,12 @@
-package com.diff.core.cmd.exe;
+package com.diff.core.cmd;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.diff.factory.GitDiffFactory;
 
 public class GitDiff {
 	
@@ -20,8 +22,7 @@ public class GitDiff {
 		BufferedReader bufferedReader;
 
 		// git diff ¸í·É¾î.
-//		String cmd = "git diff --name-only a630528b 082c66d7";
-		String cmd = "git diff --name-only "+init + " "+ end;
+		String cmd = GitDiffFactory.COMMAND_GIT_DIFF;
 
 		buffer = new StringBuffer();
 
@@ -31,7 +32,7 @@ public class GitDiff {
 		buffer.append(cmd);
 		String[] ex = { "", "" };
 		File path = new File("C:\\Users\\dsm3000\\Desktop\\proxy");
-
+		
 		List<String> resultList = new ArrayList<String>();
 		try {
 
