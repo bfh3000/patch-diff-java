@@ -1,4 +1,4 @@
-package com.diff.core;
+package com.diff.one;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -57,38 +57,37 @@ public class WinCmdOnceCommand {
 			e.printStackTrace();
 			System.exit(1);
 		}
-		
-		//원본 소스 위치
+
+		// 원본 소스 위치
 		String homePath = "C:\\Users\\dsm3000\\Desktop\\proxy\\";
-		
-		//복사될 최종 위치
+
+		// 복사될 최종 위치
 		String desktopPath = "C:\\Users\\dsm3000\\Desktop\\sac\\";
-		
-		//파일명과 파일폴더 나누기
+
+		// 파일명과 파일폴더 나누기
 		String origin_file_path = "";
 
 		for (String str : resultList) {
 			str = str.trim();
 			str = str.replace("/", "\\");
 			origin_file_path = homePath + str;
-			
-			//file name
+
+			// file name
 			String[] tmp_str = str.split("\\\\");
-			String fileName = tmp_str[tmp_str.length-1];
-			fileName = fileName.replace("java", "class"); 
-			
-			//srcSource To copySource(class)
+			String fileName = tmp_str[tmp_str.length - 1];
+			fileName = fileName.replace("java", "class");
+
+			// srcSource To copySource(class)
 			str = str.replace("java", "class");
 			str = str.replace("src", "classes");
 			str = desktopPath + str;
-			
-			
+
 			String final_DirPlusFile = str;
 			String final_Dir = final_DirPlusFile.substring(0, final_DirPlusFile.indexOf(fileName));
 			File destDir = new File(final_Dir);
-			
-			//폴더가 없다면 생성 Multi Ver.
-			if(!destDir.exists()) {
+
+			// 폴더가 없다면 생성 Multi Ver.
+			if (!destDir.exists()) {
 				try {
 					destDir.mkdirs();
 				} catch (Exception e) {
@@ -96,7 +95,6 @@ public class WinCmdOnceCommand {
 				}
 			}
 
-			
 			File srcDir = new File(origin_file_path);
 			File cpDir = new File(final_DirPlusFile);
 			try {

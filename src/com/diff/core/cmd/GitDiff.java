@@ -6,23 +6,23 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.diff.factory.GitDiffFactory;
+import com.diff.factory.GitDiffPath;
 
 public class GitDiff {
-	
+
 	public GitDiff() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public List<String> excuteDiff(String init, String end) {
-		//버퍼, 프로세서
+
+	public List<String> excuteDiff() {
+		// 버퍼, 프로세서
 		StringBuffer readBuffer;
 		StringBuffer buffer;
 		Process process;
 		BufferedReader bufferedReader;
 
 		// git diff 명령어.
-		String cmd = GitDiffFactory.COMMAND_GIT_DIFF;
+		String cmd = GitDiffPath.COMMAND_GIT_DIFF;
 
 		buffer = new StringBuffer();
 
@@ -31,8 +31,9 @@ public class GitDiff {
 		buffer.append("/k ");
 		buffer.append(cmd);
 		String[] ex = { "", "" };
-		File path = new File("C:\\Users\\dsm3000\\Desktop\\proxy");
 		
+		File path = new File(GitDiffPath.HOME_PATH);
+
 		List<String> resultList = new ArrayList<String>();
 		try {
 
@@ -57,8 +58,8 @@ public class GitDiff {
 			e1.printStackTrace();
 			System.exit(1);
 		}
-		
+
 		return resultList;
 	}
-	
+
 }
