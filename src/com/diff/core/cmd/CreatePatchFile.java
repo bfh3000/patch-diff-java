@@ -26,11 +26,11 @@ public class CreatePatchFile {
 			// file name
 			String[] tmp_str = str.split("\\\\");
 			String fileName = tmp_str[tmp_str.length - 1];
-			fileName = fileName.replace("java", "class");
+//			fileName = fileName.replace("java", "class");
 
 			// srcSource To copySource(class)
-			str = str.replace("java", "class");
-			str = str.replace("src", "classes");
+//			str = str.replace("java", "class");
+//			str = str.replace("src", "classes");
 			str = GitDiffPath.DESKTOP_PATH + str;
 
 			String final_DirPlusFile = str;

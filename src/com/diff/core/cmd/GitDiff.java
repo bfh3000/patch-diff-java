@@ -51,6 +51,7 @@ public class GitDiff {
 				readBuffer.append("\n");
 				resultList.add(line);
 			}
+			
 
 		} catch (ArrayIndexOutOfBoundsException e) {
 			e.printStackTrace();
