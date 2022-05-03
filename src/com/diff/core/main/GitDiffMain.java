@@ -8,7 +8,7 @@ import com.diff.core.cmd.GitDiff;
 
 public class GitDiffMain {
 	public static void main(String[] args) {
-
+		
 		//GitDiff excute
 		GitDiff gitDiff = new GitDiff();
 		List<String> gitDiffResult = new ArrayList<String>();
