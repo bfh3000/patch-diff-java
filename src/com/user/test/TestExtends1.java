@@ -12,3 +12,7 @@ public class TestExtends1 {
 		
 	}
 }
+
+class dehicle_sub {
+	String a = "";
+}
