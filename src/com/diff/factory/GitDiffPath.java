@@ -9,7 +9,7 @@ public final class GitDiffPath {
 	public static final String COMMAND_GIT_DIFF = "git diff --name-only " + INIT_COMMIT_ID + " " + END_COMMIT_ID;
 	
 	// 원본 소스 위치 (.git) 
-	public static final String HOME_PATH = "E:\\003-Git\\100-ApacheNetty" + "\\";
+	public static final String HOME_PATH = "E:\\003-Git\\101-diff-java\\patch-diff-java" + "\\";
 	// 복사될 최종 위치 (.class) 
 	public static final String DESKTOP_PATH = "C:\\Users\\dsm3000\\Desktop\\patchSAC" + "\\";
 	

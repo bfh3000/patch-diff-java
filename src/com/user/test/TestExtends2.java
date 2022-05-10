@@ -1,11 +1,11 @@
 package com.user.test;
 
-class Car extends Vehicle {
-	public Car() {
+public class TestExtends2 extends TestExtends3 {
+	public TestExtends2() {
 		
 	}
 	
-	public Car(String val) {
+	public TestExtends2(String val) {
 		super.name = val;
 	}
 

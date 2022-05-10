@@ -1,6 +1,6 @@
 package com.user.test;
 
-abstract class Vehicle {
+public abstract class TestExtends3 {
 	String name;
 
 	abstract public String getName(String val);
