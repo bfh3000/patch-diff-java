@@ -17,8 +17,8 @@ public final class GitDiffPath {
 	}
 	
 	// Commit
-	public static final String INIT_COMMIT_ID = "253eb1a438e2f4f818a1b8f4b472b5991d311296 ".trim(); /* CommitId (Old) */
-	public static final String END_COMMIT_ID = "7cb9c3d86651979966e12cb52b7b313de7a48a8a ".trim(); /* CommitId (current) */
+	public static final String INIT_COMMIT_ID = "7cb9c3d86651979966e12cb52b7b313de7a48a8a"; /* CommitId (Old) */
+	public static final String END_COMMIT_ID = "a50cb27ade3f2ffcea9fb09964a4829ac3b3f1e4"; /* CommitId (current) */
 	// command
 	public static final String COMMAND_GIT_DIFF = "git diff --name-only " + INIT_COMMIT_ID + " " + END_COMMIT_ID;
 	

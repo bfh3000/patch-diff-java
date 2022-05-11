@@ -9,6 +9,8 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,6 +20,9 @@ import com.diff.factory.GitDiffPath;
 
 public class CreatePatchFile {
 	private static final Logger log = LogManager.getLogger(CreatePatchFile.class);
+	
+	String referenceFileName = "";
+	
 	public CreatePatchFile() {
 		// TODO Auto-generated constructor stub
 	}
@@ -37,6 +42,7 @@ public class CreatePatchFile {
 //				}
 //			}
 //		}
+		
 		
 		for (String str : gitDiffResult) {
 			str = str.trim();
@@ -76,20 +82,19 @@ public class CreatePatchFile {
 			
 			String cp_path = origin_file_path.substring(0, origin_file_path.indexOf(fileName));
 			File cp_pathFile = new File(cp_path);
-			String[] subClass = cp_pathFile.list();
+			String[] folderList = cp_pathFile.list();
 			
-			List<String> searchSubClass = Arrays.asList(subClass);
+			List<String> searchSubClass = Arrays.asList(folderList);
+			referenceFileName = fileName.substring(0, fileName.indexOf("."));
 			
-			String tmp = searchSubClass.stream()
-			.filter(keyword -> keyword.contains("$"))
-			.findAny()
-			.orElse(null);
+			List<String> subClass = searchSubClass.stream()
+			.filter(keyword -> keyword.contains(referenceFileName+"$"))
+			.collect(Collectors.toList());
 			
-//			for(String check : subClass) {
-//				if(check.contains(fileName)){
-//				}
-//			}
+
 			
+			
+			//단일 클래스 파일 복사
 			try {
 				//복사 대상파일, 복사될 위치, 복사옵션
 				Files.copy(srcDir.toPath(), cpDir.toPath(), StandardCopyOption.REPLACE_EXISTING);
