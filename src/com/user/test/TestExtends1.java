@@ -15,12 +15,12 @@ public class TestExtends1 {
 	class dehicle_sub2 {
 		String a = "";
 	}
+	
+	class test23 {
+		String a = "";
+	}
 }
 
-class dehicle_sub {
-	String a = "";
-}
-
-class dehicle_sub2 {
+class externalClass1 {
 	String a = "";
 }

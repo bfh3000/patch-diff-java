@@ -13,18 +13,12 @@ public class TestExtends2 extends TestExtends3 {
 	public String getName(String val) {
 		return "Car name :" + val;
 	}
+	
+	class test234 {
+		String a = "";
+	}
 }
 
-class dehicle_sub4 {
-	String a = "";
-}
-
-
-class dehicle_sub5 {
-	String a = "";
-}
-
-
-class dehicle_sub66 {
+class externalClass2 {
 	String a = "";
 }
