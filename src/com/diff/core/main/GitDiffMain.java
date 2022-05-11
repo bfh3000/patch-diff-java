@@ -3,13 +3,22 @@ package com.diff.core.main;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.diff.core.cmd.CreatePatchFile;
 import com.diff.core.cmd.GitDiff;
+import com.diff.factory.GitDiffPath;
 
 public class GitDiffMain {
+	private static final Logger log = LogManager.getLogger(GitDiffMain.class);
+	
 	public static void main(String[] args) {
+		log.debug("Start Git-Diff");
 		
-		//GitDiff excute
+		log.debug("show final String");
+		GitDiffPath gitDiffPath = new GitDiffPath();
+
 		GitDiff gitDiff = new GitDiff();
 		List<String> gitDiffResult = new ArrayList<String>();
 		try {
@@ -18,6 +27,7 @@ public class GitDiffMain {
 			e.printStackTrace();
 		}
 		
+		log.debug("Start Create PatchFile");
 		//Create patchFile
 		CreatePatchFile createPatchFile = new CreatePatchFile();
 		try {

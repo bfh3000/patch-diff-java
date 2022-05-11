@@ -1,6 +1,7 @@
 package com.diff.core.cmd;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
@@ -8,15 +9,21 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.diff.core.main.GitDiffMain;
 import com.diff.factory.GitDiffPath;
 
 public class CreatePatchFile {
-
+	private static final Logger log = LogManager.getLogger(CreatePatchFile.class);
 	public CreatePatchFile() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public void createPatchFile(List<String> gitDiffResult) {
+		
+		log.debug("gitDiffResult : "+gitDiffResult.toString());
 		String origin_file_path = "";
 		
 		
@@ -49,6 +56,10 @@ public class CreatePatchFile {
 			String final_Dir = final_DirPlusFile.substring(0, final_DirPlusFile.indexOf(fileName));
 			File destDir = new File(final_Dir);
 
+			if(destDir != null) {
+				destDir.list( );
+			}
+			
 			// 폴더가 없다면 생성 Multi Ver.
 			if (!destDir.exists()) {
 				try {

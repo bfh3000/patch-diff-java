@@ -1,6 +1,20 @@
 package com.diff.factory;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public final class GitDiffPath {
+	
+	private static final Logger log = LogManager.getLogger(GitDiffPath.class);
+	
+	public GitDiffPath() {
+		log.debug("GIT_IGNORE : "+INIT_COMMIT_ID);
+		log.debug("END_COMMIT_ID : "+END_COMMIT_ID);
+		log.debug("COMMAND_GIT_DIFF : "+COMMAND_GIT_DIFF);
+		log.debug("HOME_PATH : "+HOME_PATH);
+		log.debug("DESKTOP_PATH : "+DESKTOP_PATH);
+		log.debug("GIT_IGNORE : "+GIT_IGNORE);
+	}
 	
 	// Commit
 	public static final String INIT_COMMIT_ID = "HEAD"; /* CommitId (Old) */
