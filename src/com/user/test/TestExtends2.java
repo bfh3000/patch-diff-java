@@ -14,3 +14,17 @@ public class TestExtends2 extends TestExtends3 {
 		return "Car name :" + val;
 	}
 }
+
+class dehicle_sub4 {
+	String a = "";
+}
+
+
+class dehicle_sub5 {
+	String a = "";
+}
+
+
+class dehicle_sub66 {
+	String a = "";
+}

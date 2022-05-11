@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -69,10 +70,25 @@ public class CreatePatchFile {
 				}
 			}
 			
-			String[] subClass = destDir.list();
-			
 			File srcDir = new File(origin_file_path);
 			File cpDir = new File(final_DirPlusFile);
+			
+			
+			String cp_path = origin_file_path.substring(0, origin_file_path.indexOf(fileName));
+			File cp_pathFile = new File(cp_path);
+			String[] subClass = cp_pathFile.list();
+			
+			List<String> searchSubClass = Arrays.asList(subClass);
+			
+			String tmp = searchSubClass.stream()
+			.filter(keyword -> keyword.contains("$"))
+			.findAny()
+			.orElse(null);
+			
+//			for(String check : subClass) {
+//				if(check.contains(fileName)){
+//				}
+//			}
 			
 			try {
 				//복사 대상파일, 복사될 위치, 복사옵션
