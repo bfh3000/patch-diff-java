@@ -30,6 +30,12 @@ public class GitDiffMain {
 		log.debug("Start Create PatchFile");
 		//Create patchFile
 		CreatePatchFile createPatchFile = new CreatePatchFile();
+
+		log.debug("count : "+ gitDiffResult.size());
+		for(String tmp : gitDiffResult) {
+			log.debug(tmp);
+		}
+		
 		try {
 			createPatchFile.createPatchFile(gitDiffResult);
 		} catch (Exception e) {

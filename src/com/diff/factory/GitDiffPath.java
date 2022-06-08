@@ -17,15 +17,19 @@ public final class GitDiffPath {
 	}
 	
 	// Commit
-	public static final String INIT_COMMIT_ID = "7cb9c3d86651979966e12cb52b7b313de7a48a8a"; /* CommitId (Old) */
-	public static final String END_COMMIT_ID = "a50cb27ade3f2ffcea9fb09964a4829ac3b3f1e4"; /* CommitId (current) */
+	public static final String INIT_COMMIT_ID = "4ecf647b3811e6ff71a6ba56d09ba622e59398c7    "; /* CommitId (Old) */
+	public static final String END_COMMIT_ID = "a0112d803644f00e1641146fcfb34d303181c67e    "; /* CommitId (current) */
 	// command
 	public static final String COMMAND_GIT_DIFF = "git diff --name-only " + INIT_COMMIT_ID + " " + END_COMMIT_ID;
 	
-	// 원본 소스 위치 (.git) 
-	public static final String HOME_PATH = "E:\\003-Git\\101-diff-java\\patch-diff-java" + "\\";
+	
+	//Web은 src 위치가 다름.
+	//option : 1(web), 2(proxy, scheduler)	
+	public static final String PROJECT_CATEGORY = "2";
+	// 원본 소스 위치 ('.git'가 있는 폴더 경로) 
+	public static final String HOME_PATH = "E:\\003-Git\\011-SAC320_KPO_v2\\proxy" 							+"\\";
 	// 복사될 최종 위치 (.class) 
-	public static final String DESKTOP_PATH = "C:\\Users\\dsm3000\\Desktop\\patchSAC" + "\\";
+	public static final String DESKTOP_PATH = "C:\\Users\\dsm3000\\Desktop\\patchSAC-dr" 								+"\\";
 	
 	//git ignore 읽어서 처리하도록.
 	public static final String GIT_IGNORE = "";

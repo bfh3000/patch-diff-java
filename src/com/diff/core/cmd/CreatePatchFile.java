@@ -43,7 +43,6 @@ public class CreatePatchFile {
 //			}
 //		}
 		
-		
 		for (String str : gitDiffResult) {
 			str = str.trim();
 			str = str.replace("/", "\\");
@@ -54,8 +53,14 @@ public class CreatePatchFile {
 			fileName = fileName.replace("java", "class");
 			
 			// srcSource To copySource(class)
+			// xml의 경로의 경우에는 겨		
 			str = str.replace("java", "class");
-			str = str.replace("src", "classes");
+			
+			if(GitDiffPath.PROJECT_CATEGORY.equals("1")) {
+				str = str.replace("src", "WebContent\\WEB-INF\\classes");
+			}else {
+				str = str.replace("src", "classes");
+			}
 			
 			origin_file_path = GitDiffPath.HOME_PATH + str;
 			String final_DirPlusFile = GitDiffPath.DESKTOP_PATH + str;
@@ -90,9 +95,6 @@ public class CreatePatchFile {
 			List<String> subClass = searchSubClass.stream()
 			.filter(keyword -> keyword.contains(referenceFileName+"$"))
 			.collect(Collectors.toList());
-			
-
-			
 			
 			//단일 클래스 파일 복사
 			try {
