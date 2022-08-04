@@ -1,12 +1,11 @@
 package org.diff.main;
 
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.diff.factory.GitDiffPath;
 
 public class GitDiff {
 
