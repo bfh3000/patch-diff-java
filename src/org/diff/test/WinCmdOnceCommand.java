@@ -1,4 +1,4 @@
-package com.diff.one;
+package org.diff.test;
 
 import java.io.BufferedReader;
 import java.io.File;

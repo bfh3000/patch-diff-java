@@ -1,4 +1,4 @@
-package com.diff.core.cmd;
+package org.diff.main;
 
 import java.io.BufferedReader;
 import java.io.File;

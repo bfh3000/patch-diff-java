@@ -1,4 +1,4 @@
-package com.diff.core.main;
+package org.diff.main;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.diff.core.cmd;
+package org.diff.main;
 
 import java.io.File;
 import java.io.FilenameFilter;
